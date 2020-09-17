@@ -14,3 +14,6 @@ Reply::factory()->count(50)->create();
 $threads = Thread::factory()->count(50)->create();
 $threads->each(function ($thread) { Reply::factory()->count(10)->create(['thread_id' => $thread->id]); });
 
+composer require laravel/ui
+php artisan ui vue --auth
+npm install && npm run dev
