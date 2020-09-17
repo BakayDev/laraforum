@@ -1,0 +1,16 @@
+php artisan make:model Thread -mr
+php artisan make:model Reply -mc
+create database laraforum;
+
+php artisan tinker
+
+factory('App\Models\Thread', 50)->create()
+
+8 version
+User::factory()->count(50)->create();
+Thread::factory()->count(50)->create();
+Reply::factory()->count(50)->create();
+
+$threads = Thread::factory()->count(50)->create();
+$threads->each(function ($thread) { Reply::factory()->count(10)->create(['thread_id' => $thread->id]); });
+
