@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Thread;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class ThreadFactory extends Factory
 {
@@ -25,10 +24,10 @@ class ThreadFactory extends Factory
     {
         return [
             'user_id' => function() {
-                return User::all()->random()->id;
+                return User::factory()->create()->id;
             },
-            'title' => $this->faker->title,
-            'body' => $this->faker->text,
+            'title' => $this->faker->sentence,
+            'body' => $this->faker->paragraph,
         ];
     }
 }

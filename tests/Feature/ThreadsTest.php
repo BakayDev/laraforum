@@ -15,7 +15,6 @@ class ThreadsTest extends TestCase
     /** @test */
     public function a_user_can_view_all_threads()
     {
-        User::factory()->create();
         $thread = Thread::factory()->create();
         $response = $this->get('/threads');
         $response->assertSee($thread->title);
@@ -24,7 +23,6 @@ class ThreadsTest extends TestCase
     /** @test */
     function a_user_can_read_a_single_thread()
     {
-        User::factory()->create();
         $thread = Thread::factory()->create();
         $response = $this->get('/threads/' . $thread->id);
         $response->assertSee($thread->title);
